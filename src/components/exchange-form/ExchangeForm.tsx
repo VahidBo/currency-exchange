@@ -13,6 +13,7 @@ export function ExchangeForm() {
   const [toCurrency, setToCurrency] = useState<Currency>('EUR');
   const [fromValue, setFromValue] = useState(0);
   const [toValue, setToValue] = useState(0);
+  const [exceedsBalance, setExceedsBalance] = useState(false);
   const [balances, setBalances] = useState(INITIAL_BALANCES);
 
   const exchangeRate = useExchangeRate(fromCurrency, toCurrency);
@@ -34,6 +35,11 @@ export function ExchangeForm() {
       if (exchangeRate) {
         setFromValue(value);
         setToValue(value * exchangeRate);
+        if (value > balances[fromCurrency]) {
+          setExceedsBalance(true);
+        } else {
+          setExceedsBalance(false);
+        }
       }
     },
     [exchangeRate],
@@ -44,6 +50,11 @@ export function ExchangeForm() {
       if (exchangeRate) {
         setToValue(value);
         setFromValue(value / exchangeRate);
+        if (value / exchangeRate > balances[fromCurrency]) {
+          setExceedsBalance(true);
+        } else {
+          setExceedsBalance(false);
+        }
       }
     },
     [exchangeRate],
@@ -60,6 +71,7 @@ export function ExchangeForm() {
             setCurrency={setFromCurrency}
             value={fromValue}
             setValue={onFromValueChanged}
+            exceedsBalance={exceedsBalance}
             type="from"
           />
           <ExchangeRate rate={exchangeRate} fromCurrency={fromCurrency} toCurrency={toCurrency} />
@@ -87,7 +99,7 @@ export function ExchangeForm() {
           size={12}
           width="100%"
           rounded="full"
-          isDisabled={!exchangeRate}
+          isDisabled={!exchangeRate || exceedsBalance}
           onPress={onExchangeButtonPressed}
           bg={exchangeRate ? 'indigo.700' : 'coolGray.500'}
           _text={{ fontSize: 18 }}

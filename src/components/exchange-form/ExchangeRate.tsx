@@ -12,7 +12,7 @@ export interface ExchangeRateProps {
 
 export function ExchangeRate({ rate, fromCurrency, toCurrency }: ExchangeRateProps) {
   return (
-    <Box height={100} width="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box height={100} width="100%" display="flex" alignItems="center" justifyContent="center" mb={4}>
       <Divider my="10" bg="indigo.500" />
       <Badge
         colorScheme="indigo.500"

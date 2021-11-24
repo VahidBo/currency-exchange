@@ -1,5 +1,5 @@
 import React, { Dispatch, SetStateAction, useCallback } from 'react';
-import { AddIcon, Input, MinusIcon, Select } from 'native-base';
+import { AddIcon, FormControl, Input, MinusIcon, Select, WarningOutlineIcon } from 'native-base';
 import { Currency } from './types';
 
 export interface CurrencyInputProps {
@@ -8,9 +8,10 @@ export interface CurrencyInputProps {
   setCurrency: Dispatch<SetStateAction<Currency>>;
   value: number;
   setValue: (value: number) => void;
+  exceedsBalance?: boolean;
 }
 
-export function CurrencyInput({ type, currency, setCurrency, value, setValue }: CurrencyInputProps) {
+export function CurrencyInput({ type, currency, setCurrency, value, setValue, exceedsBalance }: CurrencyInputProps) {
   const onCurrencyChanged = (val: string) => setCurrency(val as Currency);
   const InputLeftElement =
     type === 'from' ? (
@@ -25,33 +26,37 @@ export function CurrencyInput({ type, currency, setCurrency, value, setValue }: 
     [setValue],
   );
   return (
-    <Input
-      borderColor="indigo.700"
-      variant="rounded"
-      value={value ? `${value}` : ''}
-      onChangeText={onChangeValue}
-      keyboardType="numeric"
-      type="number"
-      w="80%"
-      InputLeftElement={InputLeftElement}
-      InputRightElement={
-        <Select
-          bg="indigo.700"
-          px={3}
-          selectedValue={currency}
-          minWidth={20}
-          variant="rounded"
-          accessibilityLabel="Select Currency"
-          _selectedItem={{ bg: 'indigo.100' }}
-          color="white"
-          onValueChange={onCurrencyChanged}
-        >
-          <Select.Item label="USD" value="USD" />
-          <Select.Item label="EUR" value="EUR" />
-          <Select.Item label="GBP" value="GBP" />
-        </Select>
-      }
-      placeholder="value"
-    />
+    <FormControl isInvalid={exceedsBalance} w="80%" height={70}>
+      <Input
+        borderColor="indigo.700"
+        variant="rounded"
+        value={value ? `${value}` : ''}
+        onChangeText={onChangeValue}
+        keyboardType="numeric"
+        type="number"
+        InputLeftElement={InputLeftElement}
+        InputRightElement={
+          <Select
+            bg="indigo.700"
+            px={3}
+            selectedValue={currency}
+            minWidth={20}
+            variant="rounded"
+            accessibilityLabel="Select Currency"
+            _selectedItem={{ bg: 'indigo.100' }}
+            color="white"
+            onValueChange={onCurrencyChanged}
+          >
+            <Select.Item label="USD" value="USD" />
+            <Select.Item label="EUR" value="EUR" />
+            <Select.Item label="GBP" value="GBP" />
+          </Select>
+        }
+        placeholder="value"
+      />
+      <FormControl.ErrorMessage leftIcon={<WarningOutlineIcon size="xs" />} ml={6}>
+        Exceeds balance
+      </FormControl.ErrorMessage>
+    </FormControl>
   );
 }
