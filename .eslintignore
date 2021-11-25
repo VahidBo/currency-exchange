@@ -4,3 +4,5 @@ package-lock.json
 .husky
 src/assets/*
 README.md
+android
+ios
