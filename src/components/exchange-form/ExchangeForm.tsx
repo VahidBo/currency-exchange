@@ -62,7 +62,7 @@ export function ExchangeForm() {
 
   return (
     <>
-      <ScrollView>
+      <ScrollView bg="white">
         <Center pb={10} pt={20} mb={20}>
           <Image width={204} height={45} mb={20} source={require('../../assets/images/xCoinsLogo.png')} />
           <Balance value={balances[fromCurrency]} currency={fromCurrency} />
