@@ -42,7 +42,7 @@ export function ExchangeForm() {
         }
       }
     },
-    [exchangeRate],
+    [exchangeRate, balances, fromCurrency],
   );
 
   const onToValueChanged = useCallback(
@@ -57,7 +57,7 @@ export function ExchangeForm() {
         }
       }
     },
-    [exchangeRate],
+    [exchangeRate, balances, fromCurrency],
   );
 
   return (

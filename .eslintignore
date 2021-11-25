@@ -3,3 +3,4 @@ yarn.lock
 package-lock.json
 .husky
 src/assets/*
+README.md
