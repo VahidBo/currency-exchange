@@ -1,0 +1,137 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot of Balance with 150 EUR 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    Array [
+      Object {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    colorScheme="info"
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#bae6fd",
+        "borderColor": "#4338ca",
+        "borderRadius": 9999,
+        "borderWidth": 1,
+        "height": 48,
+        "justifyContent": "center",
+        "marginBottom": 8,
+        "paddingBottom": 2,
+        "paddingLeft": 8,
+        "paddingRight": 8,
+        "paddingTop": 2,
+        "width": "80%",
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "backgroundColor": undefined,
+          "color": "#312e81",
+          "fontFamily": undefined,
+          "fontSize": 20,
+          "fontStyle": "normal",
+          "fontWeight": "400",
+          "letterSpacing": 0,
+          "lineHeight": 30,
+          "textDecorationLine": undefined,
+        }
+      }
+    >
+      Balance:
+       
+      <Text
+        style={
+          Object {
+            "backgroundColor": undefined,
+            "fontFamily": undefined,
+            "fontSize": 20,
+            "fontStyle": undefined,
+            "fontWeight": "700",
+            "textDecorationLine": undefined,
+          }
+        }
+      >
+        €150
+      </Text>
+    </Text>
+  </View>
+</RNCSafeAreaProvider>
+`;
+
+exports[`Snapshot of Balance with 200 USD 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    Array [
+      Object {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    colorScheme="info"
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#bae6fd",
+        "borderColor": "#4338ca",
+        "borderRadius": 9999,
+        "borderWidth": 1,
+        "height": 48,
+        "justifyContent": "center",
+        "marginBottom": 8,
+        "paddingBottom": 2,
+        "paddingLeft": 8,
+        "paddingRight": 8,
+        "paddingTop": 2,
+        "width": "80%",
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "backgroundColor": undefined,
+          "color": "#312e81",
+          "fontFamily": undefined,
+          "fontSize": 20,
+          "fontStyle": "normal",
+          "fontWeight": "400",
+          "letterSpacing": 0,
+          "lineHeight": 30,
+          "textDecorationLine": undefined,
+        }
+      }
+    >
+      Balance:
+       
+      <Text
+        style={
+          Object {
+            "backgroundColor": undefined,
+            "fontFamily": undefined,
+            "fontSize": 20,
+            "fontStyle": undefined,
+            "fontWeight": "700",
+            "textDecorationLine": undefined,
+          }
+        }
+      >
+        $200
+      </Text>
+    </Text>
+  </View>
+</RNCSafeAreaProvider>
+`;
